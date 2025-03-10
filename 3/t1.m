@@ -18,7 +18,7 @@ Nmax = 5000;
 lamdas = zeros(Neig, 1);
 V = zeros(n,Neig);
 
-[v,lamda] = powit(A,Nmax,tol);
+##[v,lamda] = powit(A,Nmax,tol);
 
 ##Method
 
