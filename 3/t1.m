@@ -2,13 +2,13 @@ clc;
 clear;
 
 ##Size of Matrix
-n = 5;
+n = 100;
 
 ##Matrix Init
 A = gallery('tridiag', n);
 A0 = A;
 ##Number of Eigenvalues
-Neig = 5;
+Neig = n;
 
 ##Inputs
 tol = 1e-6;

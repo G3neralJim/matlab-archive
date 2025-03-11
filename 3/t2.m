@@ -1,7 +1,7 @@
 clc;
 clear;
 
-##Size of Matrix
+##%Size of Matrix
 n = 100;
 
 ##Matrix Init
