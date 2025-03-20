@@ -7,14 +7,14 @@ clear;
 tol = 1e-5;
 
 % Max iterations
-Nmax = 1000;
+Nmax = 5000;
 
 %Initialize a Non-Linear System
 F = @(x) [x(1)^2 + x(1)*x(2) - 10;...
     x(2) + 3*x(1)*x(2)^2 - 57];
 
 %Initial Guess
-x0 = [0.5, 0.5];
+x0 = [0.5; 0.5];
 
 %Set G
 J = @(x) [2*x(1)+x(2) x(1);...
