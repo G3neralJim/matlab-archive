@@ -2,7 +2,7 @@ clear;
 clc;
 
 ##Size of Matrix
-n = 100;
+n = 10;
 
 ##Tolerance
 tol = 1e-6;
@@ -15,8 +15,8 @@ A = gallery('tridiag', n);
 I = eye(n);
 
 ##Initial Guess
-x0 = randn(n, 1);
-%x0 = ones(n,1);
+%x0 = randn(n, 1);
+x0 = ones(n,1);
 %it appears that when i am not using a random vector for x0, method does not converge to the closest lamda to sigma.
 
 
@@ -27,7 +27,7 @@ x0 = x0 / norm(x0, inf);
 %l0 = (x0'*A*x0)/(x0'*x0);
 
 l0 = 3.5;
-sigma = l0;
+sigma = 3.5;
 prel = l0;
 
 ##Method
@@ -36,8 +36,7 @@ for i = 1:Nmax
   y = (A-(sigma*I))\x0;
   y = y / norm(y, inf);
   l = (y'*A*y)/(y'*y);
-  sigma = l;
-
+  
   if ((abs(l0-l))/(prel)) < tol
     disp(['Iteration: ' num2str(i)]);
     break;
