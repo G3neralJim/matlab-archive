@@ -1,7 +1,7 @@
-function [L, U] = ilu0(A)
+function [L, U] = ilu0f(A)
     n = length(A);
     for i = 2:n
-        for k = find(A(i,1:i-1) %k = 1:i-1
+        for k = find(A(i,1:i-1)) %k = 1:i-1
             %if A(i,k) ~= 0
                 A(i,k) = A(i,k)/A(i,i);
             %end
