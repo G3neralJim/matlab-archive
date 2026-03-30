@@ -11,30 +11,33 @@ function x = cgf1(A,b,tol,Nmax)
     p = r;
 
     % Initial Norm
-    normb = norm(r);
+    norm0 = norm(r);
 
     % Iterate
     for i = 1:Nmax
+
+        %% Prepare products once
         % 2-norm squared
         r2 = r'*r;
 
         % Compute matrix - vector product
-        t = A*p;
+        Ap = A*p;
 
         % Compute aplha
-        a = r2/(p'*t);
+        a = r2/(p'*Ap);
 
         % Update solution and Residual
         x = x + a*p;
-        r = r - a*t;
+        r = r - a*Ap; % new r computed through A*p to avoid computing Ax(i+1)
 
         normr = norm(r);
 
-        if normr < tol*normb
+        if normr < tol*norm0
             disp(['Iterations: ' num2str(i)]);
             break;
         end
-
+        
+        %% Not entirely sure why b simplifies to that, but I'll take it as is, for now :/
         % Projection coefficient
         b = (r'*r / r2);
 
