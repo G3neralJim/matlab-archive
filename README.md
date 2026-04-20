@@ -1,6 +1,9 @@
+## Matlab Archive
+An archive repo to store various scripts written during attending relative classes in university.
+
 ## Use of Octave
 
-It should be noted that I am using Octave to develop these scripts. 
+It should be noted that I am using Octave to develop some of these scripts. 
 
 > octave-workspace appears in some instances because I occasionally run octave in terminal
 
