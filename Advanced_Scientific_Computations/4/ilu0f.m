@@ -12,4 +12,6 @@ function [L, U] = ilu0f(A)
             end
         end
     end
+    L = tril(A,-1)+speye(n);
+    U = triu(A);
 end
