@@ -6,7 +6,6 @@ A = load('orsirr_2.mat');
 A = A.Problem.A; %% Extract matrix from struct
 n = length(A);
 b = A*ones(n,1);
-Nmax = 1000;
 
 % Parameters
 lfill = 2;

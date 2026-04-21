@@ -17,6 +17,7 @@ function x = prec_cg(A,b,tol,Nmax, L, U)
 
     % Iterate
     for i = 1:Nmax
+        
         % 2-norm squared
         r2 = r'*z;
 
