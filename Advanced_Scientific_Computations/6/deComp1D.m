@@ -2,7 +2,7 @@ clear;
 clc;
 
 % Number of Points
-n = 11;
+n = 101;
 
 % Mesh Size
 h = 1/(n-1);
@@ -11,7 +11,7 @@ h = 1/(n-1);
 Nmax = 500;
 tol = (h^2)*0.1;
 
-overlap = 1; % must be odd
+overlap = 3; % must be odd
 op_old = (overlap+1)/2; % initial development wasd done with this variable named as overlap
                         % but it doesn't accuretly express the overlap value leading to issues
                         % in generalization. The variable above correctly reflects real overlap
@@ -49,13 +49,13 @@ for iter = 1:Nmax
     hold off;
 
     [u1 u2]
-    % aa = input('');
+    aa = input('');
 
     b1t = b1;
     b2t = b2;
 
-    b1t((end-overlap)+1:end) = b1t((end-overlap)+1:end)-u2(2);
-    b2t(1:(overlap-1)) = b2t(1:(overlap-1))-u1(end-1);
+    b1t(end) = b1t(end)-u2(overlap+1);
+    b2t(1) = b2t(1)-u1(end-overlap);
 
     ucp = u2(op_old);
     u1 = A\b1t;
@@ -68,11 +68,11 @@ for iter = 1:Nmax
 
 end
 
-u = [u1(1:end-op_old); u2];
+u = [u1(1:end-overlap); u2];
 xx = h:h:((n-2)*h)';
 u_ = @(x) sin(pi*x);
-
-error = abs(u_(xx)'-u);
+uu = u_(xx)'
+error = abs(uu-u);
 max(error)';
 
 
