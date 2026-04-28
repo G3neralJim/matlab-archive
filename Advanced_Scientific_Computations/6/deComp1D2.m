@@ -54,11 +54,11 @@ for iter = 1:Nmax
     b1t = b1;
     b2t = b2;
 
-    b1t(end) = b1t(end)-u2(overlap+1);
-    b2t(1) = b2t(1)-u1(end-overlap);
-
     ucp = u2(op_old);
+
+    b1t(end) = b1t(end)-u2(overlap+1);
     u1 = A\b1t;
+    b2t(1) = b2t(1)-u1(end-overlap);
     u2 = A\b2t;
     uc = u2(op_old);
 
