@@ -22,8 +22,8 @@ coords = zeros(nc,2);
 for i = 1:N
   for j = 1:N
     coords((i-1)*N+j, :) = [(j-1)*h, (i-1)*h];
-  endfor
-endfor
+  end
+end
 
 
 % Local-to-global matrix
@@ -36,8 +36,8 @@ for i = 1:n
     l2g(k,:) = [numbering(i,j), numbering(i, j+1), numbering(i+1, j)];
     l2g(k+1,:) = [numbering(i+1,j+1), numbering(i+1, j), numbering(i, j+1)];
     k = k + 2;
-  endfor
-endfor
+  end
+end
 
 % Assemble the global stiffness matrix
 M = spalloc(N^2, N^2, 5*N^2);
@@ -71,9 +71,9 @@ for e = 1:ne
   for i = 1:3
     for j = 1:3
       M(l2g(e,i), l2g(e,j)) = M(l2g(e,i), l2g(e,j)) + Me(i,j);
-    endfor
-  endfor
-endfor
+    end
+  end
+end
 
 % Assemble the right hand side vector
 F = zeros(N^2,1);
@@ -97,8 +97,8 @@ for e = 1:ne
   Fe(3) = 2 * Ae * integral2(@(k,e) (e).*f(x(k,e),y(k,e)), 0,1, 0, @(k) 1-k);
   for i = 1:3
     F(l2g(e,i)) = F(l2g(e,i)) + Fe(i);
-  endfor
-endfor
+  end
+end
 
 
 % Find boundaries
