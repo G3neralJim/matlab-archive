@@ -41,7 +41,7 @@ s_am = (1 + ka*m) .* cos(2*pi*fc*t);
 disp('Signal has been modulated on transmitter side')
 
 %% --- 4. Channel (AWGN) ---
-r = awgn(s_am, SNR_db, 'measured');
+r = awgnm(s_am, SNR_db, 'measured'); % use of manual function
 disp('Message received by the receiver')
 
 %% --- 5. De-modulation ---
