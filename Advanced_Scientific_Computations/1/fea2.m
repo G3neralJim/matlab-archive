@@ -78,7 +78,7 @@ for e = 1:ne
 end
 toc
 
-% Assemble the right hand side vector
+%% Assemble the right hand side vector
 F = zeros(N^2,1);
 Fe = zeros(3,1);
 f = @(x,y) 2*pi^2*sin(pi*x).*sin(pi*y);
