@@ -1,0 +1,24 @@
+clc;
+clear;
+
+% Levels
+levels = 5;
+
+% Unkown
+2.^(1:levels)-1;
+
+% Mesh sizes
+h = 1./(n+1);
+
+% Coefficient matricse
+for i = 1:levels
+    A{i} = -gallery('tridiag',n(i))/h(i)^2;
+    D{i} = diag(A{i});
+    x{i} = zeros(n(i),1);
+    b{i} = zeros(n(i),1);
+end
+
+% Create RHS for finest level
+b{levels}(:) = 1;
+
+% Create prolo
